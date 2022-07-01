@@ -1,0 +1,29 @@
+PART I
+   34  cd ~
+   35  mkdir first
+   36  cd first
+   37  touch person.txt
+   38  mv person.txt another.txt
+   39  cp another.txt copy.txt
+   40  rm copy.txt 
+   41  cd ..
+   42  cp -r first second
+   43  rm second/
+   44  rmdir second/
+   45  rmdir second
+   46  rm second
+   47  rm --dir second
+   48  rm -r second
+
+   PART II
+   1.it shows you you can use the commands (syntax, flags) and gives other info. You can scroll with enter,
+   spacebar, arrow keys, and even with keyboard trackpad. 'q' gets you out.
+   2. -l flag gives you file details like permissions, time last touched, owner, etc. 'a' shows hidden files/all files.
+   3.ctrl+ left right arrow
+   4.ctrl+e
+   5.ctrl+a
+   6.ctrl+w
+   7.terminal is the interface. shell is the software running the terminal.
+   8.an absolute path starts at the system root and moves until reaching the destination directory/file/etc
+   9.starts where it is in the file system to reach the destination address.
+   10.-r is recursive (all children files and folders). -f means force.
