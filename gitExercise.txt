@@ -1,0 +1,24 @@
+   86  mkdir learn_git_again
+   87  cd learn_git_again/
+   88  touch third.txt
+   89  git init
+   90  git add third.txt 
+   91  git status
+   92  git commit -m "adding third.txt"
+   93  git config --global user.email "brettalangreen@gmail.com"
+   94  git config --global user.name "Brett Green"
+   95  git status
+   96  git commit -m "adding third.txt"
+   97  git log
+   98  touch fourth.txt
+   99  git add fourth.txt 
+  100  git commit -m "adding fourth.txt"
+  101  ls
+  102  rm third.txt 
+  103  git status
+  104  git add third.txt 
+  105  git status
+  106  git commit -m "removing third.txt"
+  107  git log
+  110  git config --global core.pager 'cat'
+  125  git config --global -l
