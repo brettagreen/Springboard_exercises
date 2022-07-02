@@ -1,0 +1,106 @@
+1. git branch myNewBranch || git checkout -b myNewBranch
+2. easy to tell chronological order of file changes between the two branches VS 'used when a fast fwd merge won't suffice'
+3. git checkout myBranch
+4. git branch -d myBranch
+5. when changes made on files in a  branch are in conflict with changes made on those files in the branch you want to merge into.
+
+bagreen1@DESKTOP-5I63V7I:~$ mkdir mergeExercise
+bagreen1@DESKTOP-5I63V7I:~$ cd mergeExercise/
+bagreen1@DESKTOP-5I63V7I:~/mergeExercise$ git init
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint: 
+hint:   git config --global init.defaultBranch <name>
+hint: 
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint: 
+hint:   git branch -m <name>
+Initialized empty Git repository in /home/bagreen1/mergeExercise/.git/
+bagreen1@DESKTOP-5I63V7I:~/mergeExercise$ git branch
+bagreen1@DESKTOP-5I63V7I:~/mergeExercise$ git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+bagreen1@DESKTOP-5I63V7I:~/mergeExercise$ echo oogabooga > testFile.txt
+bagreen1@DESKTOP-5I63V7I:~/mergeExercise$ cat testFile.txt 
+oogabooga
+bagreen1@DESKTOP-5I63V7I:~/mergeExercise$ git add testFile.txt
+bagreen1@DESKTOP-5I63V7I:~/mergeExercise$ git commit -m "scary stuff!"
+[master (root-commit) 55210c5] scary stuff!
+ 1 file changed, 1 insertion(+)
+ create mode 100644 testFile.txt
+bagreen1@DESKTOP-5I63V7I:~/mergeExercise$ git checkout -b testBranch
+Switched to a new branch 'testBranch'
+bagreen1@DESKTOP-5I63V7I:~/mergeExercise$ ls
+testFile.txt
+bagreen1@DESKTOP-5I63V7I:~/mergeExercise$ git status
+On branch testBranch
+nothing to commit, working tree clean
+bagreen1@DESKTOP-5I63V7I:~/mergeExercise$ git log
+commit 55210c557761952d818eb057d2ec93f2f679a133 (HEAD -> testBranch, master)
+Author: Brett Green <brettalangreen@gmail.com>
+Date:   Fri Jul 1 20:52:08 2022 -0500
+
+    scary stuff!
+bagreen1@DESKTOP-5I63V7I:~/mergeExercise$ vi testFile.txt 
+bagreen1@DESKTOP-5I63V7I:~/mergeExercise$ git status
+On branch testBranch
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   testFile.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+bagreen1@DESKTOP-5I63V7I:~/mergeExercise$ git add testFile.txt 
+bagreen1@DESKTOP-5I63V7I:~/mergeExercise$ git commit -m "something less scary"
+[testBranch 6b9c772] something less scary
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+bagreen1@DESKTOP-5I63V7I:~/mergeExercise$ git checkout master
+Switched to branch 'master'
+bagreen1@DESKTOP-5I63V7I:~/mergeExercise$ git merge testBranch
+Updating 55210c5..6b9c772
+Fast-forward
+ testFile.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+bagreen1@DESKTOP-5I63V7I:~/mergeExercise$ vi testFile.txt 
+bagreen1@DESKTOP-5I63V7I:~/mergeExercise$ git add testFile.txt 
+bagreen1@DESKTOP-5I63V7I:~/mergeExercise$ git commit -m "even less scary"
+[master 8c80edf] even less scary
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+bagreen1@DESKTOP-5I63V7I:~/mergeExercise$ git checkout testBranch 
+Switched to branch 'testBranch'
+bagreen1@DESKTOP-5I63V7I:~/mergeExercise$ vi testFile.txt 
+bagreen1@DESKTOP-5I63V7I:~/mergeExercise$ git add testFile.txt 
+bagreen1@DESKTOP-5I63V7I:~/mergeExercise$ git commit -m "hardly scary at all"
+[testBranch e1091e1] hardly scary at all
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+bagreen1@DESKTOP-5I63V7I:~/mergeExercise$ git checkout master 
+Switched to branch 'master'
+bagreen1@DESKTOP-5I63V7I:~/mergeExercise$ git merge testBranch
+Auto-merging testFile.txt
+CONFLICT (content): Merge conflict in testFile.txt
+Automatic merge failed; fix conflicts and then commit the result.
+bagreen1@DESKTOP-5I63V7I:~/mergeExercise$ vi testFile.txt 
+bagreen1@DESKTOP-5I63V7I:~/mergeExercise$ git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   testFile.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+bagreen1@DESKTOP-5I63V7I:~/mergeExercise$ git add testFile.txt
+bagreen1@DESKTOP-5I63V7I:~/mergeExercise$ git commit -m "final version"
+[master 1d4ccf3] final version
+bagreen1@DESKTOP-5I63V7I:~/mergeExercise$ git status
+On branch master
+nothing to commit, working tree clean
+bagreen1@DESKTOP-5I63V7I:~/mergeExercise$ 
+
