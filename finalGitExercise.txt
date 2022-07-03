@@ -1,0 +1,21 @@
+  128  mkdir pushExercise
+  129  cd pushExercise/
+  130  git init
+  131  touch index.html
+  132  touch script.js
+  133  touch style.css
+  134  vi index.html 
+  135  vi style.css
+  136  vi script.js
+  137  git add .
+  138  git commit -m "initial commit"
+  139  git branch --help
+  140  git remote add origin https://github.com/brettagreen/gitHubFinalExercise.git
+  141  git push origin master
+  142  git checkout -b newFeature
+  143  touch README.md
+  144  echo here's where you'd read all about me > README.md
+  145  git status
+  146  git add README.md 
+  147  git commit -m "adding readme file"
+  148  git push origin newFeature
