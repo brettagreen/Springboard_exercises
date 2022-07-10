@@ -1,0 +1,6 @@
+1. const PI = 3.14;
+2. var is function scoped vs block scoped. var can also be redeclared.
+3. same as above, except const is assigned a value at creation that cannot be altered.
+4. that let can be reassigned whereas const cannot.
+5. some browser compilation of JS quirk where all vars are read first so that variable references for these variables are able to be 
+referenced before declaration and outside any scope.
