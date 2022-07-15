@@ -46,9 +46,8 @@ class Garage {
         if (['Car','Motorcycle'].every(val => vehicle.constructor.name !== val)) {
             throw new Error("Only vehicles are allowed in here!");
         }
-        if (this.capacity !== 0) {
+        if (this.vehicles.length >= this.capacity) {
             this.vehicles.push(vehicle);
-            this.capacity--;
             return "Vehicle added!";
         } else {
             return "Sorry, we're full";
