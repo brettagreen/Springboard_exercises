@@ -1,0 +1,36 @@
+What is HTTP?
+Hypertext Transfer Protocol. internet protocol used for transmitting web resources.
+
+What is a URL?
+Uniform Resource Locator. way of structuring requests for web resources. can also be used for other types of internet resources as well
+
+What is DNS?
+Domain Name Server. repository that translates urls into ip addresses.
+
+What is a query string?
+last part of a url that passes variables to the url/ip being requested
+
+What are two HTTP verbs and how are they different?
+GET=retrieve data w/o modifying the server from which data is being requested
+POST=request to modify server-side data, w/ w/o getting data in return.
+
+What is an HTTP request?
+request for data from server resource (as specified in headers and url)
+
+What is an HTTP response?
+data gotten back from server resource after making http request
+
+What is an HTTP header? Give a couple examples of request and response headers you have seen.
+metadata. language, time, etc
+
+What are the processes that happen when you type “http://somesite.com/some/page.html” into a browser?
+local cache is checked to see if the requested data can be served locally.
+same with network, and ISP layers.
+DNS server(s) are referenced to get IP address that is mapped to the url.
+http request is initiated to returned IP address in step above
+once html/text received from requested resource, any other linked/referenced resources (like .js and .css files) are then retrieved as well (over http)
+
+///////PART 2///////////
+1.https://icanhazdadjoke.com/search?term=pirate
+2.172.67.211.64, 104.21.37.176
+3....
